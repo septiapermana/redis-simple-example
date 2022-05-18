@@ -1,9 +1,15 @@
 const redis = require("redis")
-const REDIS_PORT = 6379
+const config = require("../configs/config")
+const REDIS_ADDRESS = config.redis_address
+const REDIS_PORT = config.redis_port
+
+const redis_url = `redis://${REDIS_ADDRESS}:${REDIS_PORT}`
 
 var hredis = {}
 
-hredis.client = redis.createClient(REDIS_PORT)
+hredis.client = redis.createClient({
+  url: redis_url
+})
 
 hredis.cacheUrl = (req, res, next) => {
   // var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
