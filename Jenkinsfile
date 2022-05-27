@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Set') {
             steps {
-                echo 'Hello World'
+                sh 'node -v'
             }
         }
         stage('Cloning') {
