@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Cloning') {
+        stage('Set') {
             steps {
                 echo 'Hello World'
             }
