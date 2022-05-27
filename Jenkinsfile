@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Cloning') {
             steps {
-                sh 'Hello World'
+                echo 'Hello World'
             }
         }
         stage('Cloning') {
