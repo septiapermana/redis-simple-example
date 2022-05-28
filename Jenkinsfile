@@ -1,11 +1,13 @@
-node {
-    checkout scm
+pipeline {
+    agent {
+        dockerfile true
+    }
 
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-
-        def customImage = docker.build("septiapermana/learning-redis-client")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build success'
+            }
+        }
     }
 }
