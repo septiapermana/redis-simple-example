@@ -2,14 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Set') {
+        stage('Build') {
             steps {
-                sh 'node -v'
+                sh 'docker build . -t sp-learning-redis-client'
             }
         }
-        stage('Cloning') {
+        stage('Run /w Docker') {
             steps {
-                echo 'Hello World'
+                sh 'docker run -dp 5000:5000 sp-learning-redis-client'
+            }
+        }
+        stage('Finish') {
+            steps {
+                echo 'Hai gais'
             }
         }
     }
